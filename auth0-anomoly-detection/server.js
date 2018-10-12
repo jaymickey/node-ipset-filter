@@ -14,7 +14,7 @@ router.get('/ipcheck', (req, res) => {
 
     // Don't do this for real, relying on a 3rd party service like github is not a good idea.
     // This is just for testing right now!
-    loadIPset('https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/firehol_level1.netset',
+    loadIPSet('https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/firehol_level1.netset',
         (err, ipSet) => {
             if (err) throw err
             let allowed = (!ipSet.contains(ip)) && ip.substr(-2) != '.0' && ip.substr(-3) != '.255'
