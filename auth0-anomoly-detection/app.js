@@ -16,7 +16,7 @@ app.get('/api/ipcheck', (req, res) => {
     loadIPset('https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/firehol_level1.netset',
         (err, ipSet) => {
             if (err) throw err
-            let allowed = !ipSet.contains(ip) && ip.substr(-2) === '.0' && ip.substr(-3) === '.255'
+            let allowed = (!ipSet.contains(ip)) && ip.substr(-2) != '.0' && ip.substr(-3) != '.255'
             res.setHeader('Content-Type', 'application/json')
             res.json({"allowed": allowed})
     })

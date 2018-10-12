@@ -20,8 +20,6 @@ service: auth0-anomoly-detection # NOTE: update this with your service name
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: dev
-  profile: aws_auth0
 
 # you can overwrite defaults here
 #  stage: dev
